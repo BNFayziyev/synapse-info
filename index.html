@@ -13,717 +13,834 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
                     colors: {
-                        brand: {
-                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
-                            400: '#4ade80', 500: '#1a8a4a', 600: '#16703c', 700: '#145a32',
-                            800: '#0f4426', 900: '#0a2e1a', 950: '#051a0e',
-                        },
-                        accent: { 400: '#fb923c', 500: '#f57c00', 600: '#e06800', 700: '#c25700' }
+                        brand: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#1a8a4a',600:'#16703c',700:'#145a32',800:'#0f4426',900:'#0a2e1a',950:'#051a0e' },
+                        accent: { 400:'#fb923c',500:'#f57c00',600:'#e06800',700:'#c25700' }
                     }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #FBF9F6; color: #292524; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #fafaf9; }
-        ::-webkit-scrollbar-thumb { background: #1a8a4a; border-radius: 4px; }
-
-        .reveal {
-            opacity: 0; transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .delay-100 { transition-delay: 100ms; }
-        .delay-200 { transition-delay: 200ms; }
-        .delay-300 { transition-delay: 300ms; }
-        .delay-400 { transition-delay: 400ms; }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-
-        .hero-grid {
-            background-image:
-                linear-gradient(rgba(26,138,74,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26,138,74,0.04) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        .service-card:hover .service-icon {
-            background: #1a8a4a; color: white; transform: scale(1.1) rotate(5deg);
-        }
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -12px rgba(26,138,74,0.15);
-        }
-
-        .nav-blur { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #1a8a4a, #145a32);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-
-        .stat-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(90deg, #1a8a4a, #f57c00); border-radius: 3px 3px 0 0;
-        }
-
-        .toast { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .toast.show { transform: translateX(0); }
-
-        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
-        .mobile-menu.open { max-height: 500px; opacity: 1; }
-
-        /* Services green blobs */
-        .services-blob-1 {
-            position: absolute; width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(26,138,74,0.07) 0%, transparent 70%);
-            border-radius: 50%; top: -100px; right: -200px; pointer-events: none; filter: blur(60px);
-        }
-        .services-blob-2 {
-            position: absolute; width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(20,90,50,0.06) 0%, transparent 70%);
-            border-radius: 50%; bottom: -150px; left: -150px; pointer-events: none; filter: blur(80px);
-        }
-        .services-blob-3 {
-            position: absolute; width: 350px; height: 350px;
-            background: radial-gradient(circle, rgba(245,124,0,0.04) 0%, transparent 70%);
-            border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            pointer-events: none; filter: blur(60px);
-        }
-
-        /* Company info modal */
-        .company-overlay {
-            opacity: 0; pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .company-overlay.open { opacity: 1; pointer-events: auto; }
-        .company-panel {
-            transform: translateY(20px);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .company-overlay.open .company-panel { transform: translateY(0); }
+        body{font-family:'Inter',sans-serif;background:#FBF9F6;color:#292524}
+        ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#fafaf9}::-webkit-scrollbar-thumb{background:#1a8a4a;border-radius:4px}
+        .reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.5,0,0,1)}.reveal.active{opacity:1;transform:translateY(0)}
+        .delay-100{transition-delay:100ms}.delay-200{transition-delay:200ms}.delay-300{transition-delay:300ms}.delay-400{transition-delay:400ms}
+        @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}.animate-float{animation:float 6s ease-in-out infinite}
+        .hero-grid{background-image:linear-gradient(rgba(26,138,74,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(26,138,74,.04) 1px,transparent 1px);background-size:60px 60px}
+        .service-card:hover .service-icon{background:#1a8a4a;color:#fff;transform:scale(1.1) rotate(5deg)}
+        .service-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -12px rgba(26,138,74,.15)}
+        .nav-blur{backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+        .gradient-text{background:linear-gradient(135deg,#1a8a4a,#145a32);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1a8a4a,#f57c00);border-radius:3px 3px 0 0}
+        .toast{transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}.toast.show{transform:translateX(0)}
+        .mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0}.mobile-menu.open{max-height:600px;opacity:1}
+        .services-blob-1{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(26,138,74,.07) 0%,transparent 70%);border-radius:50%;top:-100px;right:-200px;pointer-events:none;filter:blur(60px)}
+        .services-blob-2{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(20,90,50,.06) 0%,transparent 70%);border-radius:50%;bottom:-150px;left:-150px;pointer-events:none;filter:blur(80px)}
+        .services-blob-3{position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(245,124,0,.04) 0%,transparent 70%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;filter:blur(60px)}
+        .company-overlay{opacity:0;pointer-events:none;transition:opacity .3s ease}.company-overlay.open{opacity:1;pointer-events:auto}
+        .company-panel{transform:translateY(20px);transition:transform .4s cubic-bezier(.16,1,.3,1)}.company-overlay.open .company-panel{transform:translateY(0)}
+        .lang-dropdown{opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .2s ease}.lang-dropdown.open{opacity:1;pointer-events:auto;transform:translateY(0)}
+        .lang-opt.active{background:rgba(26,138,74,.08);color:#1a8a4a;font-weight:600}
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Toast -->
-    <div id="toast" class="toast fixed top-24 right-6 z-[100] bg-brand-700 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3">
-        <i data-lucide="check-circle" class="w-5 h-5 text-green-300"></i>
-        <span id="toast-message" class="text-sm font-medium">Xabar yuborildi!</span>
-    </div>
+<div id="toast" class="toast fixed top-24 right-6 z-[100] bg-brand-700 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3">
+    <i data-lucide="check-circle" class="w-5 h-5 text-green-300"></i>
+    <span id="toast-message" class="text-sm font-medium"></span>
+</div>
 
-    <!-- Company Info Modal -->
-    <div id="companyModal" class="company-overlay fixed inset-0 z-[90] flex items-end sm:items-center justify-center p-4">
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeCompanyModal()"></div>
-        <div class="company-panel relative bg-white rounded-3xl shadow-2xl w-full max-w-lg p-8 border border-stone-100">
-            <button onclick="closeCompanyModal()" class="absolute top-4 right-4 w-10 h-10 rounded-xl hover:bg-stone-100 flex items-center justify-center transition-colors">
-                <i data-lucide="x" class="w-5 h-5 text-stone-400"></i>
-            </button>
-            <div class="flex items-center gap-3 mb-6">
-                <div class="w-11 h-11 bg-brand-50 rounded-xl flex items-center justify-center">
-                    <i data-lucide="building-2" class="w-6 h-6 text-brand-600"></i>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-stone-800">Kompaniya ma'lumotlari</h3>
-                    <p class="text-xs text-stone-400">Yuridik ma'lumotlar</p>
-                </div>
-            </div>
-            <div class="space-y-4">
-                <div class="flex justify-between items-start py-3 border-b border-stone-100">
-                    <span class="text-sm text-stone-400 flex-shrink-0">Название</span>
-                    <span class="text-sm font-medium text-stone-700 text-right">SYNAPSE MCHJ</span>
-                </div>
-                <div class="flex justify-between items-start py-3 border-b border-stone-100">
-                    <span class="text-sm text-stone-400 flex-shrink-0">Адрес</span>
-                    <span class="text-sm font-medium text-stone-700 text-right">Toshkent shahri, Yangi hayot tumani</span>
-                </div>
-                <div class="flex justify-between items-start py-3 border-b border-stone-100">
-                    <span class="text-sm text-stone-400 flex-shrink-0">Р/С</span>
-                    <span class="text-sm font-medium text-stone-700 text-right font-mono">20208000907278737001</span>
-                </div>
-                <div class="flex justify-between items-start py-3 border-b border-stone-100">
-                    <span class="text-sm text-stone-400 flex-shrink-0">Банк</span>
-                    <span class="text-sm font-medium text-stone-700 text-right">Тошкент ш., "КАПИТАЛБАНК"</span>
-                </div>
-                <div class="flex justify-between items-start py-3 border-b border-stone-100">
-                    <span class="text-sm text-stone-400 flex-shrink-0">ИНН</span>
-                    <span class="text-sm font-medium text-stone-700 text-right font-mono">312301504</span>
-                </div>
-                <div class="flex justify-between items-start py-3">
-                    <span class="text-sm text-stone-400 flex-shrink-0">МФО</span>
-                    <span class="text-sm font-medium text-stone-700 text-right font-mono">01158</span>
-                </div>
-            </div>
+<!-- Company Info Modal -->
+<div id="companyModal" class="company-overlay fixed inset-0 z-[90] flex items-end sm:items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeCompanyModal()"></div>
+    <div class="company-panel relative bg-white rounded-3xl shadow-2xl w-full max-w-lg p-8 border border-stone-100">
+        <button onclick="closeCompanyModal()" class="absolute top-4 right-4 w-10 h-10 rounded-xl hover:bg-stone-100 flex items-center justify-center transition-colors"><i data-lucide="x" class="w-5 h-5 text-stone-400"></i></button>
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-11 h-11 bg-brand-50 rounded-xl flex items-center justify-center"><i data-lucide="building-2" class="w-6 h-6 text-brand-600"></i></div>
+            <div><h3 class="text-lg font-semibold text-stone-800" data-i18n="modal_title"></h3><p class="text-xs text-stone-400" data-i18n="modal_sub"></p></div>
+        </div>
+        <div class="space-y-0">
+            <div class="flex justify-between items-start py-3 border-b border-stone-100"><span class="text-sm text-stone-400 flex-shrink-0">Наименование</span><span class="text-sm font-medium text-stone-700 text-right">SYNAPSE MCHJ</span></div>
+            <div class="flex justify-between items-start py-3 border-b border-stone-100"><span class="text-sm text-stone-400 flex-shrink-0" data-i18n="modal_addr_label"></span><span class="text-sm font-medium text-stone-700 text-right" data-i18n="modal_addr_val"></span></div>
+            <div class="flex justify-between items-start py-3 border-b border-stone-100"><span class="text-sm text-stone-400 flex-shrink-0">Р/С</span><span class="text-sm font-medium text-stone-700 text-right font-mono">20208000907278737001</span></div>
+            <div class="flex justify-between items-start py-3 border-b border-stone-100"><span class="text-sm text-stone-400 flex-shrink-0">Банк</span><span class="text-sm font-medium text-stone-700 text-right">Тошкент ш., "КАПИТАЛБАНК"</span></div>
+            <div class="flex justify-between items-start py-3 border-b border-stone-100"><span class="text-sm text-stone-400 flex-shrink-0">ИНН</span><span class="text-sm font-medium text-stone-700 text-right font-mono">312301504</span></div>
+            <div class="flex justify-between items-start py-3"><span class="text-sm text-stone-400 flex-shrink-0">МФО</span><span class="text-sm font-medium text-stone-700 text-right font-mono">01158</span></div>
         </div>
     </div>
+</div>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur bg-[#FBF9F6]/80 border-b border-stone-200/50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#hero" class="flex items-center gap-3 group">
-                <img src="/public/photo_2026-07-01_04-08-03.jpg" alt="SYNAPSE" class="w-11 h-11 rounded-full">
-                <div class="flex flex-col leading-none">
-                    <span class="text-xl font-bold tracking-tight text-brand-800">SYNAPSE</span>
-                    <span class="text-[11px] font-semibold tracking-widest uppercase text-accent-500">IT Solutions</span>
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur bg-[#FBF9F6]/80 border-b border-stone-200/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#hero" class="flex items-center gap-3 group">
+            <img src="/public/photo_2026-07-01_04-08-03.jpg" alt="SYNAPSE" class="w-11 h-11 rounded-full">
+            <div class="flex flex-col leading-none">
+                <span class="text-xl font-bold tracking-tight text-brand-800">SYNAPSE</span>
+                <span class="text-[11px] font-semibold tracking-widest uppercase text-accent-500">IT Solutions</span>
+            </div>
+        </a>
+        <div class="hidden lg:flex items-center gap-6">
+            <a href="#services" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors" data-i18n="nav_svc"></a>
+            <a href="#stats" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors" data-i18n="nav_res"></a>
+            <a href="#why-us" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors" data-i18n="nav_why"></a>
+            <a href="#contact" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors" data-i18n="nav_cont"></a>
+
+            <!-- Language Selector -->
+            <div class="relative" id="langWrap">
+                <button id="langBtn" class="flex items-center gap-1.5 text-sm font-medium text-stone-500 hover:text-brand-700 px-3 py-2 rounded-xl hover:bg-stone-100 transition-all">
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                    <span id="currentLang">UZ</span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                </button>
+                <div id="langDropdown" class="lang-dropdown absolute top-full right-0 mt-1.5 bg-white rounded-2xl shadow-xl border border-stone-200 py-1.5 min-w-[140px] z-50">
+                    <button class="lang-opt w-full text-left px-4 py-2.5 text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors rounded-xl mx-1.5 active" data-lang="uz" style="width:calc(100% - 12px)">O'zbekcha</button>
+                    <button class="lang-opt w-full text-left px-4 py-2.5 text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors rounded-xl mx-1.5" data-lang="ru" style="width:calc(100% - 12px)">Русский</button>
+                    <button class="lang-opt w-full text-left px-4 py-2.5 text-sm hover:bg-brand-50 hover:text-brand-700 transition-colors rounded-xl mx-1.5" data-lang="en" style="width:calc(100% - 12px)">English</button>
                 </div>
+            </div>
+
+            <a href="tel:+998906656700" class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-700/20">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+                <span data-i18n="nav_call"></span>
             </a>
-            <div class="hidden lg:flex items-center gap-8">
-                <a href="#services" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors">Xizmatlar</a>
-                <a href="#stats" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors">Natijalar</a>
-                <a href="#why-us" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors">Nega biz</a>
-                <a href="#contact" class="text-sm font-medium text-stone-600 hover:text-brand-700 transition-colors">Aloqa</a>
-                <a href="tel:+998906656700" class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-700/20">
-                    <i data-lucide="phone" class="w-4 h-4"></i>
-                    Qo'ng'iroq
-                </a>
-            </div>
-            <button id="menuBtn" class="lg:hidden p-2 rounded-xl hover:bg-stone-100 transition-colors">
-                <i data-lucide="menu" class="w-6 h-6 text-stone-700" id="menuIcon"></i>
-            </button>
         </div>
-        <div id="mobileMenu" class="mobile-menu lg:hidden bg-white/95 nav-blur border-t border-stone-100">
-            <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
-                <a href="#services" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all">Xizmatlar</a>
-                <a href="#stats" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all">Natijalar</a>
-                <a href="#why-us" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all">Nega biz</a>
-                <a href="#contact" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all">Aloqa</a>
-                <a href="tel:+998906656700" class="mt-2 flex items-center justify-center gap-2 bg-brand-700 text-white py-3 px-4 rounded-xl font-medium">
-                    <i data-lucide="phone" class="w-4 h-4"></i> +998 90 665 67 00
-                </a>
+        <button id="menuBtn" class="lg:hidden p-2 rounded-xl hover:bg-stone-100 transition-colors">
+            <i data-lucide="menu" class="w-6 h-6 text-stone-700" id="menuIcon"></i>
+        </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu lg:hidden bg-white/95 nav-blur border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
+            <a href="#services" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all" data-i18n="nav_svc"></a>
+            <a href="#stats" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all" data-i18n="nav_res"></a>
+            <a href="#why-us" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all" data-i18n="nav_why"></a>
+            <a href="#contact" class="mobile-link py-3 px-4 rounded-xl text-stone-600 hover:text-brand-700 hover:bg-brand-50 font-medium transition-all" data-i18n="nav_cont"></a>
+            <!-- Mobile Language -->
+            <div class="flex gap-2 mt-2 px-4">
+                <button class="mob-lang flex-1 py-2.5 rounded-xl text-sm font-medium transition-all border border-stone-200" data-lang="uz">O'zb</button>
+                <button class="mob-lang flex-1 py-2.5 rounded-xl text-sm font-medium transition-all border border-stone-200" data-lang="ru">Рус</button>
+                <button class="mob-lang flex-1 py-2.5 rounded-xl text-sm font-medium transition-all border border-stone-200" data-lang="en">Eng</button>
             </div>
+            <a href="tel:+998906656700" class="mt-2 flex items-center justify-center gap-2 bg-brand-700 text-white py-3 px-4 rounded-xl font-medium">
+                <i data-lucide="phone" class="w-4 h-4"></i> +998 90 665 67 00
+            </a>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero -->
-    <section id="hero" class="relative min-h-screen flex items-center overflow-hidden hero-grid">
-        <div class="absolute top-32 right-20 w-72 h-72 bg-brand-100 rounded-full blur-3xl opacity-40 animate-float"></div>
-        <div class="absolute bottom-20 left-10 w-56 h-56 bg-accent-400/10 rounded-full blur-3xl opacity-60"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-200/30 rounded-full"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-brand-200/20 rounded-full"></div>
-
-        <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-32 w-full">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="reveal inline-flex items-center gap-2 bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium px-4 py-2 rounded-full mb-8">
-                        <span class="relative flex h-2.5 w-2.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-600"></span>
-                        </span>
-                        IT yechimlar — 24/7 qo'llab-quvvatlash
-                    </div>
-                    <h1 class="reveal delay-100 text-5xl md:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
-                        <span class="gradient-text">Biznesingiz</span><br>
-                        uchun <span class="font-serif italic text-accent-500">to'liq</span><br>
-                        IT yechimlar
-                    </h1>
-                    <p class="reveal delay-200 text-lg text-stone-500 leading-relaxed max-w-lg mb-10">
-                        Serverlardan tortib xavfsizlik tizimlarigacha — biz sizning IT infratuzilmangizni boshqarish, himoya qilish va rivojlantirishda ishonchli hamrohingiz.
-                    </p>
-                    <div class="reveal delay-300 flex flex-wrap gap-4 mb-12">
-                        <a href="#contact" class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white text-lg font-medium px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-700/20">
-                            Bepul konsultatsiya <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#services" class="inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-700 text-lg font-medium px-8 py-4 rounded-full border border-stone-200 transition-all hover:-translate-y-0.5 hover:shadow-lg">
-                            Xizmatlar
-                        </a>
-                    </div>
-                    <div class="reveal delay-400 flex gap-8">
-                        <div><div class="text-3xl font-bold text-brand-700">23+</div><div class="text-sm text-stone-400">Server</div></div>
-                        <div class="w-px bg-stone-200"></div>
-                        <div><div class="text-3xl font-bold text-brand-700">16+</div><div class="text-sm text-stone-400">Bot</div></div>
-                        <div class="w-px bg-stone-200"></div>
-                        <div><div class="text-3xl font-bold text-brand-700">24/7</div><div class="text-sm text-stone-400">Support</div></div>
-                    </div>
+<!-- Hero -->
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden hero-grid">
+    <div class="absolute top-32 right-20 w-72 h-72 bg-brand-100 rounded-full blur-3xl opacity-40 animate-float"></div>
+    <div class="absolute bottom-20 left-10 w-56 h-56 bg-accent-400/10 rounded-full blur-3xl opacity-60"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-brand-200/30 rounded-full"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-brand-200/20 rounded-full"></div>
+    <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-32 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="reveal inline-flex items-center gap-2 bg-brand-50 border border-brand-200 text-brand-700 text-sm font-medium px-4 py-2 rounded-full mb-8">
+                    <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-600"></span></span>
+                    <span data-i18n="hero_badge"></span>
                 </div>
-                <div class="reveal delay-300 hidden lg:block relative">
-                    <div class="relative">
-                        <div class="bg-white rounded-3xl shadow-2xl shadow-brand-900/10 p-8 border border-stone-100">
-                            <div class="flex items-center gap-3 mb-6">
-                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                                <span class="ml-auto text-xs text-stone-400 font-mono">synapse@admin ~ </span>
-                            </div>
-                            <div class="font-mono text-sm space-y-2">
-                                <p><span class="text-brand-600">$</span> <span class="text-stone-500">systemctl status</span></p>
-                                <p class="text-green-600">● All 23 servers — <span class="font-bold">ONLINE</span></p>
-                                <p class="text-green-600">● 16 bots — <span class="font-bold">ACTIVE</span></p>
-                                <p class="text-green-600">● Firewall — <span class="font-bold">SECURED</span></p>
-                                <p class="text-green-600">● Network — <span class="font-bold">STABLE</span></p>
-                                <p class="text-green-600">● FaceID — <span class="font-bold">RUNNING</span></p>
-                                <p class="text-accent-500 mt-3">⚡ Uptime: 99.97%</p>
-                            </div>
+                <h1 class="reveal delay-100 text-5xl md:text-7xl font-medium tracking-tight leading-[1.1] mb-6">
+                    <span data-i18n="hero_t1" class="gradient-text"></span><br>
+                    <span data-i18n="hero_t2"></span> <span data-i18n="hero_t3" class="font-serif italic text-accent-500"></span><br>
+                    <span data-i18n="hero_t4"></span>
+                </h1>
+                <p class="reveal delay-200 text-lg text-stone-500 leading-relaxed max-w-lg mb-10" data-i18n="hero_desc"></p>
+                <div class="reveal delay-300 flex flex-wrap gap-4 mb-12">
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white text-lg font-medium px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-700/20">
+                        <span data-i18n="hero_btn1"></span> <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#services" class="inline-flex items-center gap-2 bg-white hover:bg-stone-50 text-stone-700 text-lg font-medium px-8 py-4 rounded-full border border-stone-200 transition-all hover:-translate-y-0.5 hover:shadow-lg">
+                        <span data-i18n="hero_btn2"></span>
+                    </a>
+                </div>
+                <div class="reveal delay-400 flex gap-8">
+                    <div><div class="text-3xl font-bold text-brand-700">23+</div><div class="text-sm text-stone-400" data-i18n="hero_s1"></div></div>
+                    <div class="w-px bg-stone-200"></div>
+                    <div><div class="text-3xl font-bold text-brand-700">16+</div><div class="text-sm text-stone-400" data-i18n="hero_s2"></div></div>
+                    <div class="w-px bg-stone-200"></div>
+                    <div><div class="text-3xl font-bold text-brand-700">24/7</div><div class="text-sm text-stone-400" data-i18n="hero_s3"></div></div>
+                </div>
+            </div>
+            <div class="reveal delay-300 hidden lg:block relative">
+                <div class="relative">
+                    <div class="bg-white rounded-3xl shadow-2xl shadow-brand-900/10 p-8 border border-stone-100">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            <span class="ml-auto text-xs text-stone-400 font-mono">synapse@admin ~ </span>
                         </div>
-                        <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-stone-100 animate-float" style="animation-delay:1s">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><i data-lucide="shield-check" class="w-5 h-5 text-green-600"></i></div>
-                                <div><div class="text-xs text-stone-400">Xavfsizlik</div><div class="text-sm font-bold text-stone-700">100% Himoyalangan</div></div>
-                            </div>
+                        <div class="font-mono text-sm space-y-2">
+                            <p><span class="text-brand-600">$</span> <span class="text-stone-500">systemctl status</span></p>
+                            <p class="text-green-600">● All 23 servers — <span class="font-bold">ONLINE</span></p>
+                            <p class="text-green-600">● 16 bots — <span class="font-bold">ACTIVE</span></p>
+                            <p class="text-green-600">● Firewall — <span class="font-bold">SECURED</span></p>
+                            <p class="text-green-600">● Network — <span class="font-bold">STABLE</span></p>
+                            <p class="text-green-600">● FaceID — <span class="font-bold">RUNNING</span></p>
+                            <p class="text-accent-500 mt-3">⚡ Uptime: 99.97%</p>
                         </div>
-                        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-stone-100 animate-float" style="animation-delay:2s">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center"><i data-lucide="headphones" class="w-5 h-5 text-orange-600"></i></div>
-                                <div><div class="text-xs text-stone-400">Support</div><div class="text-sm font-bold text-stone-700">24/7 Tayyor</div></div>
-                            </div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-stone-100 animate-float" style="animation-delay:1s">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><i data-lucide="shield-check" class="w-5 h-5 text-green-600"></i></div>
+                            <div><div class="text-xs text-stone-400" data-i18n="hero_f1t"></div><div class="text-sm font-bold text-stone-700" data-i18n="hero_f1v"></div></div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-stone-100 animate-float" style="animation-delay:2s">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center"><i data-lucide="headphones" class="w-5 h-5 text-orange-600"></i></div>
+                            <div><div class="text-xs text-stone-400" data-i18n="hero_f2t"></div><div class="text-sm font-bold text-stone-700" data-i18n="hero_f2v"></div></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Services Section (card grid — oldingi dizayn) -->
-    <section id="services" class="relative py-24 md:py-32 px-6 overflow-hidden">
-        <div class="services-blob-1"></div>
-        <div class="services-blob-2"></div>
-        <div class="services-blob-3"></div>
+<!-- Services -->
+<section id="services" class="relative py-24 md:py-32 px-6 overflow-hidden">
+    <div class="services-blob-1"></div><div class="services-blob-2"></div><div class="services-blob-3"></div>
+    <div class="relative max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="reveal inline-flex items-center gap-2 text-brand-600 text-sm font-semibold tracking-widest uppercase mb-4">
+                <div class="w-8 h-px bg-brand-500"></div> <span data-i18n="svc_label"></span> <div class="w-8 h-px bg-brand-500"></div>
+            </div>
+            <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight mb-6">
+                <span data-i18n="svc_h1"></span> <span data-i18n="svc_h2" class="font-serif italic text-brand-700"></span> <span data-i18n="svc_h3"></span>
+            </h2>
+            <p class="reveal delay-200 text-lg text-stone-500 leading-relaxed" data-i18n="svc_desc"></p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="settings" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s1_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s1_d"></p>
+            </div>
+            <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="network" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s2_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s2_d"></p>
+            </div>
+            <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="shield" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s3_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s3_d"></p>
+            </div>
+            <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="server" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s4_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s4_d"></p>
+            </div>
+            <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="globe" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s5_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s5_d"></p>
+            </div>
+            <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="bot" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s6_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s6_d"></p>
+            </div>
+            <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="users" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s7_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s7_d"></p>
+            </div>
+            <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="flame" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s8_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s8_d"></p>
+            </div>
+            <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="camera" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s9_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s9_d"></p>
+            </div>
+            <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="scan-face" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s10_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s10_d"></p>
+            </div>
+            <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="truck" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s11_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s11_d"></p>
+            </div>
+            <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
+                <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="map-pin" class="w-7 h-7 text-brand-600"></i></div>
+                <h3 class="text-xl font-medium tracking-tight mb-3" data-i18n="s12_t"></h3>
+                <p class="text-stone-500 leading-relaxed text-sm" data-i18n="s12_d"></p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <div class="relative max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
+<!-- Stats -->
+<section id="stats" class="py-24 md:py-32 px-6 bg-brand-900 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10">
+        <div class="absolute top-10 left-10 w-40 h-40 border border-white/30 rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-60 h-60 border border-white/20 rounded-full"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="reveal inline-flex items-center gap-2 text-brand-300 text-sm font-semibold tracking-widest uppercase mb-4">
+                <div class="w-8 h-px bg-brand-400"></div> <span data-i18n="stat_label"></span> <div class="w-8 h-px bg-brand-400"></div>
+            </div>
+            <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight text-white">
+                <span data-i18n="stat_t1"></span> <span data-i18n="stat_t2" class="font-serif italic text-accent-400"></span>
+            </h2>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="reveal stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
+                <div class="text-4xl md:text-5xl font-bold text-white mb-2">23</div>
+                <div class="text-brand-300 text-sm font-medium" data-i18n="stat_v1"></div>
+            </div>
+            <div class="reveal delay-100 stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
+                <div class="text-4xl md:text-5xl font-bold text-white mb-2">16</div>
+                <div class="text-brand-300 text-sm font-medium" data-i18n="stat_v2"></div>
+            </div>
+            <div class="reveal delay-200 stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
+                <div class="text-4xl md:text-5xl font-bold text-accent-400 mb-2">24/7</div>
+                <div class="text-brand-300 text-sm font-medium" data-i18n="stat_v3"></div>
+            </div>
+            <div class="reveal delay-300 stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
+                <div class="text-4xl md:text-5xl font-bold text-white mb-2">99.9<span class="text-2xl">%</span></div>
+                <div class="text-brand-300 text-sm font-medium" data-i18n="stat_v4"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Us -->
+<section id="why-us" class="py-24 md:py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal relative">
+                <div class="rounded-3xl overflow-hidden shadow-2xl shadow-brand-900/10">
+                    <img src="https://picsum.photos/seed/synapse-server-room/700/500.jpg" alt="Server" class="w-full h-[400px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="absolute -bottom-6 -right-6 md:right-8 bg-white rounded-2xl shadow-xl p-6 border border-stone-100 max-w-[240px]">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-600"></i></div>
+                        <span class="text-sm font-bold text-stone-700" data-i18n="why_card_t"></span>
+                    </div>
+                    <div class="text-3xl font-bold text-brand-700" data-i18n="why_card_v"></div>
+                </div>
+            </div>
+            <div>
                 <div class="reveal inline-flex items-center gap-2 text-brand-600 text-sm font-semibold tracking-widest uppercase mb-4">
-                    <div class="w-8 h-px bg-brand-500"></div> Xizmatlarimiz <div class="w-8 h-px bg-brand-500"></div>
+                    <div class="w-8 h-px bg-brand-500"></div> <span data-i18n="why_label"></span>
+                </div>
+                <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight mb-8">
+                    <span data-i18n="why_t1"></span> <span data-i18n="why_t2" class="font-serif italic text-brand-700"></span> <span data-i18n="why_t3"></span>
+                </h2>
+                <div class="space-y-6">
+                    <div class="reveal delay-100 flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="zap" class="w-6 h-6 text-brand-600"></i></div>
+                        <div><h3 class="text-lg font-medium mb-1" data-i18n="w1_t"></h3><p class="text-stone-500 text-sm leading-relaxed" data-i18n="w1_d"></p></div>
+                    </div>
+                    <div class="reveal delay-200 flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="layers" class="w-6 h-6 text-brand-600"></i></div>
+                        <div><h3 class="text-lg font-medium mb-1" data-i18n="w2_t"></h3><p class="text-stone-500 text-sm leading-relaxed" data-i18n="w2_d"></p></div>
+                    </div>
+                    <div class="reveal delay-300 flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="lock" class="w-6 h-6 text-brand-600"></i></div>
+                        <div><h3 class="text-lg font-medium mb-1" data-i18n="w3_t"></h3><p class="text-stone-500 text-sm leading-relaxed" data-i18n="w3_d"></p></div>
+                    </div>
+                    <div class="reveal delay-400 flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="trending-up" class="w-6 h-6 text-brand-600"></i></div>
+                        <div><h3 class="text-lg font-medium mb-1" data-i18n="w4_t"></h3><p class="text-stone-500 text-sm leading-relaxed" data-i18n="w4_d"></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process -->
+<section class="py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <div class="reveal inline-flex items-center gap-2 text-brand-600 text-sm font-semibold tracking-widest uppercase mb-4">
+                <div class="w-8 h-px bg-brand-500"></div> <span data-i18n="proc_label"></span> <div class="w-8 h-px bg-brand-500"></div>
+            </div>
+            <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight">
+                <span data-i18n="proc_t1"></span> <span data-i18n="proc_t2" class="font-serif italic text-brand-700"></span>
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="reveal text-center"><div class="w-16 h-16 bg-brand-700 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">1</div><h3 class="font-medium text-lg mb-2" data-i18n="p1_t"></h3><p class="text-stone-500 text-sm" data-i18n="p1_d"></p></div>
+            <div class="reveal delay-100 text-center"><div class="w-16 h-16 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">2</div><h3 class="font-medium text-lg mb-2" data-i18n="p2_t"></h3><p class="text-stone-500 text-sm" data-i18n="p2_d"></p></div>
+            <div class="reveal delay-200 text-center"><div class="w-16 h-16 bg-brand-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">3</div><h3 class="font-medium text-lg mb-2" data-i18n="p3_t"></h3><p class="text-stone-500 text-sm" data-i18n="p3_d"></p></div>
+            <div class="reveal delay-300 text-center"><div class="w-16 h-16 bg-accent-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">4</div><h3 class="font-medium text-lg mb-2" data-i18n="p4_t"></h3><p class="text-stone-500 text-sm" data-i18n="p4_d"></p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-24 md:py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16">
+            <div>
+                <div class="reveal inline-flex items-center gap-2 text-brand-600 text-sm font-semibold tracking-widest uppercase mb-4">
+                    <div class="w-8 h-px bg-brand-500"></div> <span data-i18n="cont_label"></span>
                 </div>
                 <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight mb-6">
-                    Biznesingiz uchun <span class="font-serif italic text-brand-700">to'liq</span> IT xizmatlar
+                    <span data-i18n="cont_t1"></span> <span data-i18n="cont_t2" class="font-serif italic text-brand-700"></span>
                 </h2>
-                <p class="reveal delay-200 text-lg text-stone-500 leading-relaxed">
-                    Har bir IT muammo uchun professional va ishonchli yechim — bitta joyda.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="settings" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">IT Xizmat & Support</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Kompyuterlar, printerlar, dasturiy ta'minot va apparat muammolariga tezkor yechim. 24/7 texnik yordam.</p>
-                </div>
-                <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="network" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Tarmoq sozlash</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">LAN, WAN, VLAN tarmoq infratuzilmasini loyihalash, o'rnatish va boshqarish. IP manzillarni to'g'ri taqsimlash.</p>
-                </div>
-                <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="shield" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Xavfsizlik tizimlari</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Firewall sozlash, VPN, antiviral himoya, kirish nazorati va ma'lumotlarni shifrlash xizmatlari.</p>
-                </div>
-                <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="server" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Server boshqaruv</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">23 ta serverni boshqarish, monitoring, backup va recovery. Windows & Linux server sozlash.</p>
-                </div>
-                <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="globe" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Web sayt yaratish</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Zamonaviy, tezkor va SEO-optimized veb-saytlar. Korporativ saytlar, CRM integratsiya.</p>
-                </div>
-                <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="bot" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Bot yaratish</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Telegram botlar, avtomatik xabarnoma, Samsara bot va boshqa biznes botlari — 16+ tayyor bot tajribasi.</p>
-                </div>
-                <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="users" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Active Directory</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">AD domen sozlash, foydalanuvchi boshqaruv, GPO siyosatlar va kirish huquqlarini boshqarish.</p>
-                </div>
-                <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="flame" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Firewall sozlash</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Tarmoq devorlari, trafik filtratsiya, intrusion detection va prevention tizimlarini sozlash.</p>
-                </div>
-                <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="camera" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Kamera tizimlari</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">IP kamera o'rnatish, video nazorat tizimi, yozuv serverlari va masofadan kuzatish.</p>
-                </div>
-                <div class="reveal service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="scan-face" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">FaceID Check-in/Out</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Yuzni tanish orqali davomat nazorati — qurilma o'rnatish va Telegram bot bilan integratsiya.</p>
-                </div>
-                <div class="reveal delay-100 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="truck" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">Samsara Bot</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Samsara GPS tracking tizimi bilan Telegram bot integratsiyasi — real-time kuzatish va xabarnoma.</p>
-                </div>
-                <div class="reveal delay-200 service-card bg-white rounded-3xl p-8 border border-stone-100 transition-all duration-300 cursor-default">
-                    <div class="service-icon w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300"><i data-lucide="map-pin" class="w-7 h-7 text-brand-600"></i></div>
-                    <h3 class="text-xl font-medium tracking-tight mb-3">IP manzil boshqaruv</h3>
-                    <p class="text-stone-500 leading-relaxed text-sm">Statik va dinamik IP taqsimlash, DNS sozlash, subnet planning va IP konflikt hal qilish.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section id="stats" class="py-24 md:py-32 px-6 bg-brand-900 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-10">
-            <div class="absolute top-10 left-10 w-40 h-40 border border-white/30 rounded-full"></div>
-            <div class="absolute bottom-10 right-10 w-60 h-60 border border-white/20 rounded-full"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-white/10 rounded-full"></div>
-        </div>
-        <div class="relative max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="reveal inline-flex items-center gap-2 text-brand-300 text-sm font-semibold tracking-widest uppercase mb-4">
-                    <div class="w-8 h-px bg-brand-400"></div> Natijalar <div class="w-8 h-px bg-brand-400"></div>
-                </div>
-                <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight text-white">Raqamlar <span class="font-serif italic text-accent-400">gapiradi</span></h2>
-            </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="reveal stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">23</div>
-                    <div class="text-brand-300 text-sm font-medium">Server boshqariladi</div>
-                </div>
-                <div class="reveal delay-100 stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">16</div>
-                    <div class="text-brand-300 text-sm font-medium">Bot ishlaydi</div>
-                </div>
-                <div class="reveal delay-200 stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="text-4xl md:text-5xl font-bold text-accent-400 mb-2">24/7</div>
-                    <div class="text-brand-300 text-sm font-medium">Doimiy support</div>
-                </div>
-                <div class="reveal delay-300 stat-card relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 text-center border border-white/10 hover:bg-white/10 transition-all">
-                    <div class="text-4xl md:text-5xl font-bold text-white mb-2">99.9<span class="text-2xl">%</span></div>
-                    <div class="text-brand-300 text-sm font-medium">Uptime kafolati</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Us -->
-    <section id="why-us" class="py-24 md:py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="reveal relative">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl shadow-brand-900/10">
-                        <img src="https://picsum.photos/seed/synapse-server-room/700/500.jpg" alt="Server xona" class="w-full h-[400px] md:h-[500px] object-cover hover:scale-105 transition-transform duration-700">
+                <p class="reveal delay-200 text-lg text-stone-500 leading-relaxed mb-10" data-i18n="cont_desc"></p>
+                <div class="reveal delay-300 space-y-6">
+                    <a href="tel:+998906656700" class="flex items-center gap-4 group">
+                        <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-100 transition-colors"><i data-lucide="phone" class="w-6 h-6 text-brand-600"></i></div>
+                        <div><div class="text-sm text-stone-400 mb-0.5" data-i18n="c_phone"></div><div class="text-lg font-medium text-stone-700 group-hover:text-brand-700 transition-colors">+998 90 665 67 00</div></div>
+                    </a>
+                    <a href="mailto:beekhasanov@gmail.com" class="flex items-center gap-4 group">
+                        <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-100 transition-colors"><i data-lucide="mail" class="w-6 h-6 text-brand-600"></i></div>
+                        <div><div class="text-sm text-stone-400 mb-0.5">Email</div><div class="text-lg font-medium text-stone-700 group-hover:text-brand-700 transition-colors">beekhasanov@gmail.com</div></div>
+                    </a>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="map-pin" class="w-6 h-6 text-brand-600"></i></div>
+                        <div><div class="text-sm text-stone-400 mb-0.5" data-i18n="c_addr"></div><div class="text-lg font-medium text-stone-700" data-i18n="c_addr_v"></div></div>
                     </div>
-                    <div class="absolute -bottom-6 -right-6 md:right-8 bg-white rounded-2xl shadow-xl p-6 border border-stone-100 max-w-[240px]">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><i data-lucide="check-circle-2" class="w-5 h-5 text-green-600"></i></div>
-                            <span class="text-sm font-bold text-stone-700">Barcha tizimlar</span>
-                        </div>
-                        <div class="text-3xl font-bold text-brand-700">Ishlayapti ✓</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="reveal inline-flex items-center gap-2 text-brand-600 text-sm font-semibold tracking-widest uppercase mb-4">
-                        <div class="w-8 h-px bg-brand-500"></div> Nega biz
-                    </div>
-                    <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight mb-8">Biz <span class="font-serif italic text-brand-700">boshqacha</span> yondashamiz</h2>
-                    <div class="space-y-6">
-                        <div class="reveal delay-100 flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="zap" class="w-6 h-6 text-brand-600"></i></div>
-                            <div><h3 class="text-lg font-medium mb-1">Tezkor reaktsiya</h3><p class="text-stone-500 text-sm leading-relaxed">Muammo yuzaga kelganda daqiqalar ichida javob beramiz. Masofadan kirish bilan ko'pchilik muammolarni onlayn hal qilamiz.</p></div>
-                        </div>
-                        <div class="reveal delay-200 flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="layers" class="w-6 h-6 text-brand-600"></i></div>
-                            <div><h3 class="text-lg font-medium mb-1">To'liq majmua</h3><p class="text-stone-500 text-sm leading-relaxed">Serverdan botgacha, kameradan firewalgacha — bitta IT jamoasi sifatida barchasini boshqaramiz.</p></div>
-                        </div>
-                        <div class="reveal delay-300 flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="lock" class="w-6 h-6 text-brand-600"></i></div>
-                            <div><h3 class="text-lg font-medium mb-1">Xavfsizlik birinchi</h3><p class="text-stone-500 text-sm leading-relaxed">Har qanday yechim xavfsizlikni birinchi o'ringa qo'ygan holda amalga oshiriladi.</p></div>
-                        </div>
-                        <div class="reveal delay-400 flex gap-4">
-                            <div class="flex-shrink-0 w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="trending-up" class="w-6 h-6 text-brand-600"></i></div>
-                            <div><h3 class="text-lg font-medium mb-1">Kengayuvchan yechimlar</h3><p class="text-stone-500 text-sm leading-relaxed">Biznesingiz o'sishi bilan IT infratuzilma ham o'sadi — oldindan rejalashtirilgan skalablilik.</p></div>
-                        </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 bg-accent-400/10 rounded-2xl flex items-center justify-center"><i data-lucide="clock" class="w-6 h-6 text-accent-500"></i></div>
+                        <div><div class="text-sm text-stone-400 mb-0.5" data-i18n="c_time"></div><div class="text-lg font-medium text-stone-700" data-i18n="c_time_v"></div></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section class="py-24 px-6 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <div class="reveal inline-flex items-center gap-2 text-brand-600 text-sm font-semibold tracking-widest uppercase mb-4">
-                    <div class="w-8 h-px bg-brand-500"></div> Ish jarayoni <div class="w-8 h-px bg-brand-500"></div>
-                </div>
-                <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight">Qanday <span class="font-serif italic text-brand-700">ishlaymiz</span></h2>
-            </div>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="reveal text-center">
-                    <div class="relative w-16 h-16 bg-brand-700 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">1</div>
-                    <h3 class="font-medium text-lg mb-2">Tahlil</h3>
-                    <p class="text-stone-500 text-sm">Hozirgi IT holatini ko'rib chiqamiz va muammolarni aniqlaymiz.</p>
-                </div>
-                <div class="reveal delay-100 text-center">
-                    <div class="relative w-16 h-16 bg-brand-600 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">2</div>
-                    <h3 class="font-medium text-lg mb-2">Reja</h3>
-                    <p class="text-stone-500 text-sm">Budjet va muddatni hisoblab, optimal yechim rejasini tuzamiz.</p>
-                </div>
-                <div class="reveal delay-200 text-center">
-                    <div class="relative w-16 h-16 bg-brand-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">3</div>
-                    <h3 class="font-medium text-lg mb-2">Amalga oshirish</h3>
-                    <p class="text-stone-500 text-sm">Sozlash, o'rnatish, integratsiya — barcha jarayonlarni bajarish.</p>
-                </div>
-                <div class="reveal delay-300 text-center">
-                    <div class="relative w-16 h-16 bg-accent-500 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-5">4</div>
-                    <h3 class="font-medium text-lg mb-2">Qo'llab-quvvatlash</h3>
-                    <p class="text-stone-500 text-sm">24/7 monitoring, yangilash va doimiy texnik yordam.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-24 md:py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div>
-                    <div class="reveal inline-flex items-center gap-2 text-brand-600 text-sm font-semibold tracking-widest uppercase mb-4">
-                        <div class="w-8 h-px bg-brand-500"></div> Bog'lanish
+            <div class="reveal delay-200">
+                <form id="contactForm" class="bg-white rounded-3xl p-8 md:p-10 shadow-xl shadow-stone-200/50 border border-stone-100">
+                    <div class="space-y-5">
+                        <div><label class="block text-sm font-medium text-stone-600 mb-2" data-i18n="f_name"></label><input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all" data-i18n-ph="f_name_ph"></div>
+                        <div><label class="block text-sm font-medium text-stone-600 mb-2" data-i18n="f_phone"></label><input type="tel" name="phone" required class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all" data-i18n-ph="f_phone_ph"></div>
+                        <div><label class="block text-sm font-medium text-stone-600 mb-2" data-i18n="f_svc"></label><select name="service" required id="svcSelect" class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all appearance-none cursor-pointer"></select></div>
+                        <div><label class="block text-sm font-medium text-stone-600 mb-2" data-i18n="f_msg"></label><textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all resize-none" data-i18n-ph="f_msg_ph"></textarea></div>
+                        <button type="submit" id="submitBtn" class="w-full bg-brand-700 hover:bg-brand-800 text-white text-lg font-medium py-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-700/20 flex items-center justify-center gap-2">
+                            <span id="btnText" data-i18n="f_btn"></span>
+                            <i data-lucide="send" class="w-5 h-5" id="btnIcon"></i>
+                            <svg id="btnSpinner" class="hidden animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                        </button>
                     </div>
-                    <h2 class="reveal delay-100 text-4xl md:text-5xl tracking-tight mb-6">Biz bilan <span class="font-serif italic text-brand-700">bog'laning</span></h2>
-                    <p class="reveal delay-200 text-lg text-stone-500 leading-relaxed mb-10">IT muammolaringizni bizga ishonch bilan topshiring — bepul konsultatsiya va narx hisob-kitobi bering.</p>
-                    <div class="reveal delay-300 space-y-6">
-                        <a href="tel:+998906656700" class="flex items-center gap-4 group">
-                            <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-100 transition-colors"><i data-lucide="phone" class="w-6 h-6 text-brand-600"></i></div>
-                            <div><div class="text-sm text-stone-400 mb-0.5">Telefon</div><div class="text-lg font-medium text-stone-700 group-hover:text-brand-700 transition-colors">+998 90 665 67 00</div></div>
-                        </a>
-                        <a href="mailto:beekhasanov@gmail.com" class="flex items-center gap-4 group">
-                            <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-100 transition-colors"><i data-lucide="mail" class="w-6 h-6 text-brand-600"></i></div>
-                            <div><div class="text-sm text-stone-400 mb-0.5">Email</div><div class="text-lg font-medium text-stone-700 group-hover:text-brand-700 transition-colors">beekhasanov@gmail.com</div></div>
-                        </a>
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-brand-50 rounded-2xl flex items-center justify-center"><i data-lucide="map-pin" class="w-6 h-6 text-brand-600"></i></div>
-                            <div><div class="text-sm text-stone-400 mb-0.5">Manzil</div><div class="text-lg font-medium text-stone-700">Toshkent, O'zbekiston</div></div>
-                        </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 bg-accent-400/10 rounded-2xl flex items-center justify-center"><i data-lucide="clock" class="w-6 h-6 text-accent-500"></i></div>
-                            <div><div class="text-sm text-stone-400 mb-0.5">Ish vaqti</div><div class="text-lg font-medium text-stone-700">24/7 — dam olishsiz</div></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="reveal delay-200">
-                    <form id="contactForm" class="bg-white rounded-3xl p-8 md:p-10 shadow-xl shadow-stone-200/50 border border-stone-100">
-                        <div class="space-y-5">
-                            <div>
-                                <label class="block text-sm font-medium text-stone-600 mb-2">Ismingiz</label>
-                                <input type="text" name="name" required placeholder="To'liq ismingiz" class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-stone-600 mb-2">Telefon raqam</label>
-                                <input type="tel" name="phone" required placeholder="+998 XX XXX XX XX" class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-stone-600 mb-2">Xizmat turi</label>
-                                <select name="service" required class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all appearance-none cursor-pointer">
-                                    <option value="" disabled selected>Tanlang...</option>
-                                    <option>IT Service & Support</option>
-                                    <option>Tarmoq sozlash</option>
-                                    <option>Xavfsizlik tizimlari</option>
-                                    <option>Server boshqaruv</option>
-                                    <option>Web sayt yaratish</option>
-                                    <option>Bot yaratish</option>
-                                    <option>Active Directory</option>
-                                    <option>Firewall sozlash</option>
-                                    <option>Kamera tizimlari</option>
-                                    <option>FaceID Check-in/Out</option>
-                                    <option>Samsara Bot</option>
-                                    <option>IP manzil boshqaruv</option>
-                                    <option>Boshqa</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-stone-600 mb-2">Xabaringiz</label>
-                                <textarea name="message" rows="4" required placeholder="Muammoni qisqacha tavsiflang..." class="w-full px-4 py-3 rounded-xl border border-stone-200 bg-[#FBF9F6] text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all resize-none"></textarea>
-                            </div>
-                            <button type="submit" id="submitBtn" class="w-full bg-brand-700 hover:bg-brand-800 text-white text-lg font-medium py-4 rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-700/20 flex items-center justify-center gap-2">
-                                <span id="btnText">Xabar yuborish</span>
-                                <i data-lucide="send" class="w-5 h-5" id="btnIcon"></i>
-                                <svg id="btnSpinner" class="hidden animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CTA -->
-    <section class="py-20 px-6 bg-gradient-to-br from-brand-800 to-brand-950 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-400 rounded-full blur-3xl"></div>
+<!-- CTA -->
+<section class="py-20 px-6 bg-gradient-to-br from-brand-800 to-brand-950 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10"><div class="absolute top-0 right-0 w-96 h-96 bg-accent-400 rounded-full blur-3xl"></div><div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-400 rounded-full blur-3xl"></div></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+        <h2 class="reveal text-3xl md:text-5xl text-white tracking-tight mb-6">
+            <span data-i18n="cta_t1"></span> <span data-i18n="cta_t2" class="font-serif italic text-accent-400"></span> <span data-i18n="cta_t3"></span>
+        </h2>
+        <p class="reveal delay-100 text-lg text-brand-200 mb-10 max-w-2xl mx-auto" data-i18n="cta_desc"></p>
+        <div class="reveal delay-200 flex flex-wrap justify-center gap-4">
+            <a href="tel:+998906656700" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white text-lg font-medium px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl"><i data-lucide="phone" class="w-5 h-5"></i> <span data-i18n="cta_btn1"></span></a>
+            <a href="https://t.me/+998906656700" target="_blank" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-lg font-medium px-8 py-4 rounded-full border border-white/20 transition-all hover:-translate-y-0.5">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Telegram
+            </a>
         </div>
-        <div class="relative max-w-4xl mx-auto text-center">
-            <h2 class="reveal text-3xl md:text-5xl text-white tracking-tight mb-6">IT muammolaringizni <span class="font-serif italic text-accent-400">hoziroq</span> hal qiling</h2>
-            <p class="reveal delay-100 text-lg text-brand-200 mb-10 max-w-2xl mx-auto">Biznesingiz to'xtab qolmasligi uchun — professional IT jamoasi sifatida tayyormiz.</p>
-            <div class="reveal delay-200 flex flex-wrap justify-center gap-4">
-                <a href="tel:+998906656700" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white text-lg font-medium px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl"><i data-lucide="phone" class="w-5 h-5"></i> Qo'ng'iroq qiling</a>
-                <a href="https://t.me/+998906656700" target="_blank" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-lg font-medium px-8 py-4 rounded-full border border-white/20 transition-all hover:-translate-y-0.5">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                    Telegram
-                </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-stone-900 text-stone-400 pt-16 pb-8 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-5">
+                    <img src="/public/photo_2026-07-01_04-08-03.jpg" alt="SYNAPSE" class="w-10 h-10 rounded-full">
+                    <div class="flex flex-col leading-none"><span class="text-lg font-bold text-white">SYNAPSE</span><span class="text-[10px] font-semibold tracking-widest uppercase text-accent-400">IT Solutions</span></div>
+                </div>
+                <p class="text-sm leading-relaxed mb-4" data-i18n="ft_desc"></p>
+                <p class="text-xs text-stone-500">"SYNAPSE" MChJ</p>
+            </div>
+            <div>
+                <h4 class="text-white font-medium mb-5" data-i18n="ft_svc"></h4>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="#services" class="hover:text-brand-400 transition-colors" data-i18n="fs1"></a></li>
+                    <li><a href="#services" class="hover:text-brand-400 transition-colors" data-i18n="fs2"></a></li>
+                    <li><a href="#services" class="hover:text-brand-400 transition-colors" data-i18n="fs3"></a></li>
+                    <li><a href="#services" class="hover:text-brand-400 transition-colors" data-i18n="fs4"></a></li>
+                    <li><a href="#services" class="hover:text-brand-400 transition-colors" data-i18n="fs5"></a></li>
+                    <li><a href="#services" class="hover:text-brand-400 transition-colors" data-i18n="fs6"></a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-medium mb-5" data-i18n="ft_cont"></h4>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-brand-500"></i><a href="tel:+998906656700" class="hover:text-brand-400 transition-colors">+998 90 665 67 00</a></li>
+                    <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-brand-500"></i><a href="mailto:beekhasanov@gmail.com" class="hover:text-brand-400 transition-colors">beekhasanov@gmail.com</a></li>
+                    <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-brand-500"></i> <span data-i18n="fc_addr"></span></li>
+                    <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-accent-400"></i> 24/7</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-stone-900 text-stone-400 pt-16 pb-8 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <div class="flex items-center gap-3 mb-5">
-                        <img src="/public/photo_2026-07-01_04-08-03.jpg" alt="SYNAPSE" class="w-10 h-10 rounded-full">
-                        <div class="flex flex-col leading-none">
-                            <span class="text-lg font-bold text-white">SYNAPSE</span>
-                            <span class="text-[10px] font-semibold tracking-widest uppercase text-accent-400">IT Solutions</span>
-                        </div>
-                    </div>
-                    <p class="text-sm leading-relaxed mb-4">Biznesingiz uchun to'liq IT yechimlar — server, xavfsizlik, tarmoq, bot va boshqa xizmatlar.</p>
-                    <p class="text-xs text-stone-500">"SYNAPSE" MChJ</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-medium mb-5">Xizmatlar</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li><a href="#services" class="hover:text-brand-400 transition-colors">IT Service & Support</a></li>
-                        <li><a href="#services" class="hover:text-brand-400 transition-colors">Server boshqaruv</a></li>
-                        <li><a href="#services" class="hover:text-brand-400 transition-colors">Xavfsizlik & Firewall</a></li>
-                        <li><a href="#services" class="hover:text-brand-400 transition-colors">Bot yaratish</a></li>
-                        <li><a href="#services" class="hover:text-brand-400 transition-colors">FaceID & Kamera</a></li>
-                        <li><a href="#services" class="hover:text-brand-400 transition-colors">Web sayt yaratish</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-medium mb-5">Aloqa</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-brand-500"></i><a href="tel:+998906656700" class="hover:text-brand-400 transition-colors">+998 90 665 67 00</a></li>
-                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-brand-500"></i><a href="mailto:beekhasanov@gmail.com" class="hover:text-brand-400 transition-colors">beekhasanov@gmail.com</a></li>
-                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-brand-500"></i> Toshkent, O'zbekiston</li>
-                        <li class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-accent-400"></i> 24/7 Online</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Bottom Bar with Company Info Button -->
-            <div class="border-t border-stone-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-xs text-stone-500">© 2025 SYNAPSE MChJ. Barcha huquqlar himoyalangan.</p>
-                    <button onclick="openCompanyModal()" class="inline-flex items-center gap-2 text-xs text-stone-400 hover:text-brand-400 transition-colors group">
-                        <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
-                        Kompaniya ma'lumotlari
-                        <i data-lucide="chevron-right" class="w-3 h-3 group-hover:translate-x-0.5 transition-transform"></i>
-                    </button>
-                    <p class="text-xs text-stone-600">Toshkent, O'zbekiston</p>
-                </div>
+        <div class="border-t border-stone-800 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-stone-500"><span data-i18n="ft_copy"></span></p>
+                <button onclick="openCompanyModal()" class="inline-flex items-center gap-2 text-xs text-stone-400 hover:text-brand-400 transition-colors group">
+                    <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+                    <span data-i18n="ft_info"></span>
+                    <i data-lucide="chevron-right" class="w-3 h-3 group-hover:translate-x-0.5 transition-transform"></i>
+                </button>
+                <p class="text-xs text-stone-600" data-i18n="ft_city"></p>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Back to Top -->
-    <button id="backToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-700 hover:bg-brand-800 text-white rounded-full shadow-lg shadow-brand-700/30 flex items-center justify-center transition-all hover:-translate-y-1 opacity-0 translate-y-4 pointer-events-none" aria-label="Yuqoriga">
-        <i data-lucide="chevron-up" class="w-5 h-5"></i>
-    </button>
+<button id="backToTop" class="fixed bottom-8 right-8 z-50 w-12 h-12 bg-brand-700 hover:bg-brand-800 text-white rounded-full shadow-lg shadow-brand-700/30 flex items-center justify-center transition-all hover:-translate-y-1 opacity-0 translate-y-4 pointer-events-none" aria-label="Top"><i data-lucide="chevron-up" class="w-5 h-5"></i></button>
 
-    <script>
+<script>
+// ==================== TRANSLATIONS ====================
+const T = {
+uz: {
+nav_svc:'Xizmatlar',nav_res:'Natijalar',nav_why:'Nega biz',nav_cont:'Aloqa',nav_call:"Qo'ng'iroq",
+hero_badge:"IT yechimlar — 24/7 qo'llab-quvvatlash",
+hero_t1:'Biznesingiz',hero_t2:'uchun',hero_t3:"to'liq",hero_t4:'IT yechimlar',
+hero_desc:"Serverlardan tortib xavfsizlik tizimlarigacha — biz sizning IT infratuzilmangizni boshqarish, himoya qilish va rivojlantirishda ishonchli hamrohingiz.",
+hero_btn1:'Bepul konsultatsiya',hero_btn2:'Xizmatlar',hero_s1:'Server',hero_s2:'Bot',hero_s3:'Support',
+hero_f1t:'Xavfsizlik',hero_f1v:'100% Himoyalangan',hero_f2t:'Support',hero_f2v:'24/7 Tayyor',
+svc_label:'Xizmatlarimiz',svc_h1:'Biznesingiz uchun',svc_h2:"to'liq",svc_h3:'IT xizmatlar',
+svc_desc:'Har bir IT muammo uchun professional va ishonchli yechim — bitta joyda.',
+s1_t:'IT Xizmat & Support',s1_d:"Kompyuterlar, printerlar, dasturiy ta'minot va apparat muammolariga tezkor yechim. 24/7 texnik yordam.",
+s2_t:'Tarmoq sozlash',s2_d:'LAN, WAN, VLAN tarmoq infratuzilmasini loyihalash, o\'rnatish va boshqarish. IP manzillarni to\'g\'ri taqsimlash.',
+s3_t:'Xavfsizlik tizimlari',s3_d:'Firewall sozlash, VPN, antiviral himoya, kirish nazorati va ma\'lumotlarni shifrlash xizmatlari.',
+s4_t:'Server boshqaruv',s4_d:'23 ta serverni boshqarish, monitoring, backup va recovery. Windows & Linux server sozlash.',
+s5_t:'Web sayt yaratish',s5_d:'Zamonaviy, tezkor va SEO-optimized veb-saytlar. Korporativ saytlar, CRM integratsiya.',
+s6_t:'Bot yaratish',s6_d:'Telegram botlar, avtomatik xabarnoma, Samsara bot va boshqa biznes botlari — 16+ tayyor bot tajribasi.',
+s7_t:'Active Directory',s7_d:'AD domen sozlash, foydalanuvchi boshqaruv, GPO siyosatlar va kirish huquqlarini boshqarish.',
+s8_t:'Firewall sozlash',s8_d:'Tarmoq devorlari, trafik filtratsiya, intrusion detection va prevention tizimlarini sozlash.',
+s9_t:'Kamera tizimlari',s9_d:'IP kamera o\'rnatish, video nazorat tizimi, yozuv serverlari va masofadan kuzatish.',
+s10_t:'FaceID Check-in/Out',s10_d:'Yuzni tanish orqali davomat nazorati — qurilma o\'rnatish va Telegram bot bilan integratsiya.',
+s11_t:'Samsara Bot',s11_d:'Samsara GPS tracking tizimi bilan Telegram bot integratsiyasi — real-time kuzatish va xabarnoma.',
+s12_t:'IP manzil boshqaruv',s12_d:'Statik va dinamik IP taqsimlash, DNS sozlash, subnet planning va IP konflikt hal qilish.',
+stat_label:'Natijalar',stat_t1:'Raqamlar',stat_t2:'gapiradi',
+stat_v1:'Server boshqariladi',stat_v2:'Bot ishlaydi',stat_v3:'Doimiy support',stat_v4:'Uptime kafolati',
+why_label:'Nega biz',why_t1:'Biz',why_t2:'boshqacha',why_t3:'yondashamiz',
+why_card_t:'Barcha tizimlar',why_card_v:'Ishlayapti ✓',
+w1_t:'Tezkor reaktsiya',w1_d:'Muammo yuzaga kelganda daqiqalar ichida javob beramiz. Masofadan kirish bilan ko\'pchilik muammolarni onlayn hal qilamiz.',
+w2_t:'To\'liq majmua',w2_d:'Serverdan botgacha, kameradan firewalgacha — bitta IT jamoasi sifatida barchasini boshqaramiz.',
+w3_t:'Xavfsizlik birinchi',w3_d:'Har qanday yechim xavfsizlikni birinchi o\'ringa qo\'ygan holda amalga oshiriladi.',
+w4_t:'Kengayuvchan yechimlar',w4_d:'Biznesingiz o\'sishi bilan IT infratuzilma ham o\'sadi — oldindan rejalashtirilgan skalablilik.',
+proc_label:'Ish jarayoni',proc_t1:'Qanday',proc_t2:'ishlaymiz',
+p1_t:'Tahlil',p1_d:'Hozirgi IT holatini ko\'rib chiqamiz va muammolarni aniqlaymiz.',
+p2_t:'Reja',p2_d:'Budjet va muddatni hisoblab, optimal yechim rejasini tuzamiz.',
+p3_t:'Amalga oshirish',p3_d:'Sozlash, o\'rnatish, integratsiya — barcha jarayonlarni bajarish.',
+p4_t:'Qo\'llab-quvvatlash',p4_d:'24/7 monitoring, yangilash va doimiy texnik yordam.',
+cont_label:'Bog\'lanish',cont_t1:'Biz bilan',cont_t2:'bog\'laning',
+cont_desc:'IT muammolaringizni bizga ishonch bilan topshiring — bepul konsultatsiya va narx hisob-kitobi bering.',
+c_phone:'Telefon',c_addr:'Manzil',c_addr_v:'Toshkent, O\'zbekiston',c_time:'Ish vaqti',c_time_v:'24/7 — dam o\'lishsiz',
+f_name:'Ismingiz',f_name_ph:'To\'liq ismingiz',f_phone:'Telefon raqam',f_phone_ph:'+998 XX XXX XX XX',
+f_svc:'Xizmat turi',f_msg:'Xabaringiz',f_msg_ph:'Muammoni qisqacha tavsiflang...',f_btn:'Xabar yuborish',f_sending:'Yuborilmoqda...',
+f_select_ph:'Tanlang...',f_other:'Boshqa',
+cta_t1:'IT muammolaringizni',cta_t2:'hoziroq',cta_t3:'hal qiling',
+cta_desc:'Biznesingiz to\'xtab qolmasligi uchun — professional IT jamoasi sifatida tayyormiz.',
+cta_btn1:"Qo'ng'iroq qiling",
+ft_desc:'Biznesingiz uchun to\'liq IT yechimlar — server, xavfsizlik, tarmoq, bot va boshqa xizmatlar.',
+ft_svc:'Xizmatlar',ft_cont:'Aloqa',
+fs1:'IT Service & Support',fs2:'Server boshqaruv',fs3:'Xavfsizlik & Firewall',fs4:'Bot yaratish',fs5:'FaceID & Kamera',fs6:'Web sayt yaratish',
+fc_addr:'Toshkent, O\'zbekiston',
+ft_copy:'© 2025 SYNAPSE MChJ. Barcha huquqlar himoyalangan.',
+ft_info:'Kompaniya ma\'lumotlari',ft_city:'Toshkent, O\'zbekiston',
+modal_title:'Kompaniya ma\'lumotlari',modal_sub:'Yuridik ma\'lumotlar',
+modal_addr_label:'Manzil',modal_addr_val:'Toshkent shahri, Yangi hayot tumani',
+toast_ok:"Xabaringiz muvaffaqiyatli yuborildi! Tez orada bog'lanamiz."
+},
+ru: {
+nav_svc:'Услуги',nav_res:'Результаты',nav_why:'Почему мы',nav_cont:'Контакты',nav_call:'Звонок',
+hero_badge:'IT решения — поддержка 24/7',
+hero_t1:'Вашему бизнесу',hero_t2:'полный',hero_t3:'спектр',hero_t4:'IT решений',
+hero_desc:'От серверов до систем безопасности — мы надёжный партнёр в управлении, защите и развитии вашей IT-инфраструктуры.',
+hero_btn1:'Бесплатная консультация',hero_btn2:'Услуги',hero_s1:'Сервер',hero_s2:'Бот',hero_s3:'Поддержка',
+hero_f1t:'Безопасность',hero_f1v:'100% Защищено',hero_f2t:'Поддержка',hero_f2v:'24/7 На связи',
+svc_label:'Наши услуги',svc_h1:'Полный спектр',svc_h2:'IT-услуг',svc_h3:'для бизнеса',
+svc_desc:'Профессиональные и надёжные решения для каждой IT-проблемы — в одном месте.',
+s1_t:'IT Услуги и Поддержка',s1_d:'Быстрые решения проблем с компьютерами, принтерами, ПО и оборудованием. Техническая поддержка 24/7.',
+s2_t:'Настройка сети',s2_d:'Проектирование, установка и управление сетевой инфраструктурой LAN, WAN, VLAN. Правильное распределение IP-адресов.',
+s3_t:'Системы безопасности',s3_d:'Настройка файрвола, VPN, антивирусная защита, контроль доступа и шифрование данных.',
+s4_t:'Управление серверами',s4_d:'Управление 23 серверами, мониторинг, бэкап и восстановление. Настройка Windows и Linux серверов.',
+s5_t:'Создание веб-сайтов',s5_d:'Современные, быстрые и SEO-оптимизированные сайты. Корпоративные сайты, интеграция с CRM.',
+s6_t:'Создание ботов',s6_d:'Telegram-боты, автоматические уведомления, Samsara бот и другие бизнес-боты — опыт 16+ готовых ботов.',
+s7_t:'Active Directory',s7_d:'Настройка домена AD, управление пользователями, политики GPO и управление правами доступа.',
+s8_t:'Настройка файрвола',s8_d:'Сетевые экраны, фильтрация трафика, настройка систем обнаружения и предотвращения вторжений.',
+s9_t:'Системы камер',s9_d:'Установка IP-камер, система видеонаблюдения, серверы записи и удалённый мониторинг.',
+s10_t:'FaceID Check-in/Out',s10_d:'Контроль посещаемости через распознавание лиц — установка устройств и интеграция с Telegram-ботом.',
+s11_t:'Samsara Бот',s11_d:'Интеграция системы GPS-мониторинга Samsara с Telegram-ботом — отслеживание и уведомления в реальном времени.',
+s12_t:'Управление IP-адресами',s12_d:'Распределение статических и динамических IP, настройка DNS, планирование подсетей и разрешение IP-конфликтов.',
+stat_label:'Результаты',stat_t1:'Цифры',stat_t2:'говорят',
+stat_v1:'Серверов управляется',stat_v2:'Ботов работает',stat_v3:'Постоянная поддержка',stat_v4:'Гарантия аптайма',
+why_label:'Почему мы',why_t1:'Мы',why_t2:'подходим',why_t3:'иначе',
+why_card_t:'Все системы',why_card_v:'Работают ✓',
+w1_t:'Быстрая реакция',w1_d:'Реагируем в считанные минуты при возникновении проблемы. Большинство проблем решаем онлайн через удалённый доступ.',
+w2_t:'Полный комплекс',w2_d:'От серверов до ботов, от камер до файрвола — управляем всем как одна IT-команда.',
+w3_t:'Безопасность прежде всего',w3_d:'Любое решение реализуется с приоритетом безопасности на первом месте.',
+w4_t:'Масштабируемые решения',w4_d:'IT-инфраструктура растёт вместе с вашим бизнесом — заранее спланированная масштабируемость.',
+proc_label:'Рабочий процесс',proc_t1:'Как мы',proc_t2:'работаем',
+p1_t:'Анализ',p1_d:'Изучаем текущее состояние IT и выявляем проблемы.',
+p2_t:'План',p2_d:'Рассчитываем бюджет и сроки, составляем оптимальный план решений.',
+p3_t:'Реализация',p3_d:'Настройка, установка, интеграция — выполнение всех процессов.',
+p4_t:'Поддержка',p4_d:'Мониторинг 24/7, обновления и постоянная техническая помощь.',
+cont_label:'Связаться',cont_t1:'Свяжитесь',cont_t2:'с нами',
+cont_desc:'Доверьте нам ваши IT-проблемы — бесплатная консультация и расчёт стоимости.',
+c_phone:'Телефон',c_addr:'Адрес',c_addr_v:'Ташкент, Узбекистан',c_time:'Время работы',c_time_v:'24/7 — без выходных',
+f_name:'Ваше имя',f_name_ph:'Полное имя',f_phone:'Номер телефона',f_phone_ph:'+998 XX XXX XX XX',
+f_svc:'Тип услуги',f_msg:'Ваше сообщение',f_msg_ph:'Кратко опишите проблему...',f_btn:'Отправить сообщение',f_sending:'Отправка...',
+f_select_ph:'Выберите...',f_other:'Другое',
+cta_t1:'Решите ваши IT-проблемы',cta_t2:'прямо',cta_t3:'сейчас',
+cta_desc:'Чтобы ваш бизнес не останавливался — готовы как профессиональная IT-команда.',
+cta_btn1:'Позвоните',
+ft_desc:'Полный спектр IT-решений для вашего бизнеса — серверы, безопасность, сеть, боты и другие услуги.',
+ft_svc:'Услуги',ft_cont:'Контакты',
+fs1:'IT Услуги и Поддержка',fs2:'Управление серверами',fs3:'Безопасность и Файрвол',fs4:'Создание ботов',fs5:'FaceID и Камеры',fs6:'Создание веб-сайтов',
+fc_addr:'Ташкент, Узбекистан',
+ft_copy:'© 2025 SYNAPSE MChJ. Все права защищены.',
+ft_info:'Информация о компании',ft_city:'Ташкент, Узбекистан',
+modal_title:'Информация о компании',modal_sub:'Юридические данные',
+modal_addr_label:'Адрес',modal_addr_val:'г. Ташкент, район Янги хаёт',
+toast_ok:'Ваше сообщение успешно отправлено! Скоро свяжемся с вами.'
+},
+en: {
+nav_svc:'Services',nav_res:'Results',nav_why:'Why Us',nav_cont:'Contact',nav_call:'Call',
+hero_badge:'IT solutions — 24/7 support',
+hero_t1:'Complete',hero_t2:'IT solutions',hero_t3:'for your',hero_t4:'business',
+hero_desc:'From servers to security systems — we are your reliable partner in managing, protecting and developing your IT infrastructure.',
+hero_btn1:'Free Consultation',hero_btn2:'Services',hero_s1:'Server',hero_s2:'Bot',hero_s3:'Support',
+hero_f1t:'Security',hero_f1v:'100% Protected',hero_f2t:'Support',hero_f2v:'24/7 Ready',
+svc_label:'Our Services',svc_h1:'Complete',svc_h2:'IT services',svc_h3:'for your business',
+svc_desc:'Professional and reliable solutions for every IT problem — all in one place.',
+s1_t:'IT Service & Support',s1_d:'Quick solutions for computer, printer, software and hardware issues. 24/7 technical assistance.',
+s2_t:'Network Setup',s2_d:'Design, installation and management of LAN, WAN, VLAN network infrastructure. Proper IP address distribution.',
+s3_t:'Security Systems',s3_d:'Firewall configuration, VPN, antivirus protection, access control and data encryption services.',
+s4_t:'Server Management',s4_d:'Managing 23 servers, monitoring, backup and recovery. Windows & Linux server configuration.',
+s5_t:'Website Development',s5_d:'Modern, fast and SEO-optimized websites. Corporate sites, CRM integration.',
+s6_t:'Bot Development',s6_d:'Telegram bots, automated notifications, Samsara bot and other business bots — 16+ ready bot experience.',
+s7_t:'Active Directory',s7_d:'AD domain configuration, user management, GPO policies and access rights management.',
+s8_t:'Firewall Configuration',s8_d:'Network firewalls, traffic filtering, intrusion detection and prevention system configuration.',
+s9_t:'Camera Systems',s9_d:'IP camera installation, video surveillance system, recording servers and remote monitoring.',
+s10_t:'FaceID Check-in/Out',s10_d:'Attendance control via facial recognition — device installation and Telegram bot integration.',
+s11_t:'Samsara Bot',s11_d:'Samsara GPS tracking system integration with Telegram bot — real-time monitoring and notifications.',
+s12_t:'IP Address Management',s12_d:'Static and dynamic IP distribution, DNS configuration, subnet planning and IP conflict resolution.',
+stat_label:'Results',stat_t1:'Numbers',stat_t2:'speak',
+stat_v1:'Servers managed',stat_v2:'Bots active',stat_v3:'Constant support',stat_v4:'Uptime guarantee',
+why_label:'Why Us',why_t1:'We',why_t2:'approach',why_t3:'differently',
+why_card_t:'All systems',why_card_v:'Running ✓',
+w1_t:'Fast Response',w1_d:'We respond within minutes when a problem occurs. Most issues are resolved online via remote access.',
+w2_t:'Complete Suite',w2_d:'From servers to bots, from cameras to firewalls — we manage everything as one IT team.',
+w3_t:'Security First',w3_d:'Every solution is implemented with security as the top priority.',
+w4_t:'Scalable Solutions',w4_d:'Your IT infrastructure grows with your business — pre-planned scalability.',
+proc_label:'Work Process',proc_t1:'How we',proc_t2:'work',
+p1_t:'Analysis',p1_d:'We review your current IT state and identify problems.',
+p2_t:'Planning',p2_d:'We calculate budget and timeline, create an optimal solution plan.',
+p3_t:'Implementation',p3_d:'Configuration, installation, integration — executing all processes.',
+p4_t:'Support',p4_d:'24/7 monitoring, updates and continuous technical assistance.',
+cont_label:'Get in Touch',cont_t1:'Contact',cont_t2:'Us',
+cont_desc:'Trust us with your IT problems — free consultation and cost estimation.',
+c_phone:'Phone',c_addr:'Address',c_addr_v:'Tashkent, Uzbekistan',c_time:'Working Hours',c_time_v:'24/7 — No days off',
+f_name:'Your Name',f_name_ph:'Full name',f_phone:'Phone Number',f_phone_ph:'+998 XX XXX XX XX',
+f_svc:'Service Type',f_msg:'Your Message',f_msg_ph:'Briefly describe the issue...',f_btn:'Send Message',f_sending:'Sending...',
+f_select_ph:'Select...',f_other:'Other',
+cta_t1:'Solve your IT problems',cta_t2:'right',cta_t3:'now',
+cta_desc:'To keep your business running — ready as a professional IT team.',
+cta_btn1:'Call Now',
+ft_desc:'Complete IT solutions for your business — servers, security, network, bots and other services.',
+ft_svc:'Services',ft_cont:'Contact',
+fs1:'IT Service & Support',fs2:'Server Management',fs3:'Security & Firewall',fs4:'Bot Development',fs5:'FaceID & Cameras',fs6:'Website Development',
+fc_addr:'Tashkent, Uzbekistan',
+ft_copy:'© 2025 SYNAPSE MChJ. All rights reserved.',
+ft_info:'Company Information',ft_city:'Tashkent, Uzbekistan',
+modal_title:'Company Information',modal_sub:'Legal Information',
+modal_addr_label:'Address',modal_addr_val:'Tashkent city, Yangi hayot district',
+toast_ok:'Your message was sent successfully! We\'ll contact you soon.'
+}
+};
+
+// Service options for select
+const svcOpts = {
+uz:['IT Service & Support','Tarmoq sozlash','Xavfsizlik tizimlari','Server boshqaruv','Web sayt yaratish','Bot yaratish','Active Directory','Firewall sozlash','Kamera tizimlari','FaceID Check-in/Out','Samsara Bot','IP manzil boshqaruv','Boshqa'],
+ru:['IT Услуги и Поддержка','Настройка сети','Системы безопасности','Управление серверами','Создание веб-сайтов','Создание ботов','Active Directory','Настройка файрвола','Системы камер','FaceID Check-in/Out','Samsara Бот','Управление IP-адресами','Другое'],
+en:['IT Service & Support','Network Setup','Security Systems','Server Management','Website Development','Bot Development','Active Directory','Firewall Configuration','Camera Systems','FaceID Check-in/Out','Samsara Bot','IP Address Management','Other']
+};
+
+let currentLang = localStorage.getItem('synapse_lang') || 'uz';
+
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('synapse_lang', lang);
+    const t = T[lang];
+
+    // Text content
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+    });
+
+    // Placeholders
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.dataset.i18nPh;
+        if (t[key] !== undefined) el.placeholder = t[key];
+    });
+
+    // Service select
+    const sel = document.getElementById('svcSelect');
+    const currentVal = sel.value;
+    const opts = svcOpts[lang];
+    sel.innerHTML = `<option value="" disabled>${t.f_select_ph}</option>` + opts.map((o,i) => `<option value="${i}">${o}</option>`).join('');
+    if (currentVal) sel.value = currentVal;
+
+    // Lang button text
+    document.getElementById('currentLang').textContent = lang.toUpperCase();
+
+    // Desktop dropdown active state
+    document.querySelectorAll('.lang-opt').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+    });
+
+    // Mobile lang buttons
+    document.querySelectorAll('.mob-lang').forEach(b => {
+        if (b.dataset.lang === lang) {
+            b.classList.add('bg-brand-700','text-white','border-brand-700');
+            b.classList.remove('border-stone-200','text-stone-600');
+        } else {
+            b.classList.remove('bg-brand-700','text-white','border-brand-700');
+            b.classList.add('border-stone-200','text-stone-600');
+        }
+    });
+
+    // Page title
+    const titles = { uz:'SYNAPSE — IT Solutions | Toshkent, O\'zbekiston', ru:'SYNAPSE — IT Solutions | Ташкент, Узбекистан', en:'SYNAPSE — IT Solutions | Tashkent, Uzbekistan' };
+    document.title = titles[lang];
+
+    // HTML lang attr
+    document.documentElement.lang = lang;
+}
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+    setLang(currentLang);
+
+    // Language dropdown toggle
+    const langBtn = document.getElementById('langBtn');
+    const langDrop = document.getElementById('langDropdown');
+    langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDrop.classList.toggle('open');
+    });
+    document.addEventListener('click', () => langDrop.classList.remove('open'));
+    langDrop.addEventListener('click', (e) => e.stopPropagation());
+
+    // Desktop lang options
+    document.querySelectorAll('.lang-opt').forEach(b => {
+        b.addEventListener('click', () => {
+            setLang(b.dataset.lang);
+            langDrop.classList.remove('open');
+        });
+    });
+
+    // Mobile lang buttons
+    document.querySelectorAll('.mob-lang').forEach(b => {
+        b.addEventListener('click', () => setLang(b.dataset.lang));
+    });
+
+    // Mobile Menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let menuOpen = false;
+    menuBtn.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle('open', menuOpen);
+        menuIcon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
         lucide.createIcons();
-
-        // Mobile Menu
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getElementById('menuIcon');
-        let menuOpen = false;
-        menuBtn.addEventListener('click', () => {
-            menuOpen = !menuOpen;
-            mobileMenu.classList.toggle('open', menuOpen);
-            menuIcon.setAttribute('data-lucide', menuOpen ? 'x' : 'menu');
-            lucide.createIcons();
+    });
+    document.querySelectorAll('.mobile-link').forEach(l => {
+        l.addEventListener('click', () => {
+            menuOpen = false; mobileMenu.classList.remove('open');
+            menuIcon.setAttribute('data-lucide', 'menu'); lucide.createIcons();
         });
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuOpen = false; mobileMenu.classList.remove('open');
-                menuIcon.setAttribute('data-lucide', 'menu'); lucide.createIcons();
-            });
-        });
+    });
 
-        // Navbar
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => navbar.classList.toggle('shadow-sm', window.scrollY > 50));
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('shadow-sm', window.scrollY > 50));
 
-        // Back to Top
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 600) {
-                backToTop.classList.remove('opacity-0','translate-y-4','pointer-events-none');
-                backToTop.classList.add('opacity-100','translate-y-0');
-            } else {
-                backToTop.classList.add('opacity-0','translate-y-4','pointer-events-none');
-                backToTop.classList.remove('opacity-100','translate-y-0');
-            }
-        });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // Scroll Reveal
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // Toast
-        function showToast(msg) {
-            const t = document.getElementById('toast');
-            document.getElementById('toast-message').textContent = msg;
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 3500);
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+            backToTop.classList.remove('opacity-0','translate-y-4','pointer-events-none');
+            backToTop.classList.add('opacity-100','translate-y-0');
+        } else {
+            backToTop.classList.add('opacity-0','translate-y-4','pointer-events-none');
+            backToTop.classList.remove('opacity-100','translate-y-0');
         }
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        // Company Modal
-        function openCompanyModal() {
-            document.getElementById('companyModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeCompanyModal() {
-            document.getElementById('companyModal').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeCompanyModal();
-        });
+    // Scroll Reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // Form
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
+    // Toast
+    window.showToast = (msg) => {
+        const t = document.getElementById('toast');
+        document.getElementById('toast-message').textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3500);
+    };
+
+    // Company Modal
+    window.openCompanyModal = () => {
+        document.getElementById('companyModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+    window.closeCompanyModal = () => {
+        document.getElementById('companyModal').classList.remove('open');
+        document.body.style.overflow = '';
+    };
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCompanyModal(); });
+
+    // Form
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
+        const btnSpinner = document.getElementById('btnSpinner');
+        const submitBtn = document.getElementById('submitBtn');
+        const t = T[currentLang];
+        btnText.textContent = t.f_sending;
+        btnIcon.classList.add('hidden'); btnSpinner.classList.remove('hidden');
+        submitBtn.disabled = true; submitBtn.classList.add('opacity-80');
+        setTimeout(() => {
+            btnText.textContent = t.f_btn;
+            btnIcon.classList.remove('hidden'); btnSpinner.classList.add('hidden');
+            submitBtn.disabled = false; submitBtn.classList.remove('opacity-80');
+            e.target.reset();
+            setLang(currentLang); // reset select
+            showToast(t.toast_ok);
+        }, 2000);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function(e) {
             e.preventDefault();
-            const btnText = document.getElementById('btnText');
-            const btnIcon = document.getElementById('btnIcon');
-            const btnSpinner = document.getElementById('btnSpinner');
-            const submitBtn = document.getElementById('submitBtn');
-            btnText.textContent = 'Yuborilmoqda...';
-            btnIcon.classList.add('hidden'); btnSpinner.classList.remove('hidden');
-            submitBtn.disabled = true; submitBtn.classList.add('opacity-80');
-            setTimeout(() => {
-                btnText.textContent = 'Xabar yuborish';
-                btnIcon.classList.remove('hidden'); btnSpinner.classList.add('hidden');
-                submitBtn.disabled = false; submitBtn.classList.remove('opacity-80');
-                e.target.reset();
-                showToast("Xabaringiz muvaffaqiyatli yuborildi! Tez orada bog'lanamiz.");
-            }, 2000);
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
         });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
-                e.preventDefault();
-                const t = document.querySelector(this.getAttribute('href'));
-                if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
-            });
-        });
-    </script>
+    });
+});
+</script>
 </body>
 </html>
