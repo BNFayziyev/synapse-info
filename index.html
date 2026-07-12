@@ -174,28 +174,31 @@
                             <div class="w-3 h-3 rounded-full bg-green-400"></div>
                             <span class="ml-auto text-xs text-stone-400 font-mono">synapse@admin ~ </span>
                         </div>
-                        <div class="font-mono text-sm space-y-2">
-                            <p><span class="text-brand-600">$</span> <span class="text-stone-500">systemctl status</span></p>
-                            <p class="text-green-600">● All 23 servers — <span class="font-bold">ONLINE</span></p>
-                            <p class="text-green-600">● 16 bots — <span class="font-bold">ACTIVE</span></p>
-                            <p class="text-green-600">● Firewall — <span class="font-bold">SECURED</span></p>
-                            <p class="text-green-600">● Network — <span class="font-bold">STABLE</span></p>
-                            <p class="text-green-600">● FaceID — <span class="font-bold">RUNNING</span></p>
-                            <p class="text-accent-500 mt-3">⚡ Uptime: 99.97%</p>
+                        <div class="font-mono">
+                            <p class="text-stone-500 text-sm mb-3"><span class="text-brand-600">$</span> <span data-i18n="hero_ip_cmd"></span></p>
+                            <p id="hero-ipv4" class="text-brand-700 text-4xl font-bold tracking-tight leading-none mb-4">--</p>
+                            <div class="space-y-2 text-sm">
+                                <p class="text-green-700">● <span data-i18n="hero_ip_addr"></span>: <span id="hero-ip-address" class="font-bold text-stone-700">--</span></p>
+                                <p class="text-green-700">● <span data-i18n="hero_ipv4"></span>: <span id="hero-ipv4-line" class="font-bold text-stone-700">--</span></p>
+                                <p class="text-green-700">● <span data-i18n="hero_ipv6"></span>: <span id="hero-ipv6" class="font-bold text-stone-700">--</span></p>
+                                <p class="text-green-700">● <span data-i18n="hero_location"></span>: <span id="hero-location" class="font-bold text-stone-700">...</span></p>
+                                <p class="text-green-700">● <span data-i18n="hero_provider"></span>: <span id="hero-provider" class="font-bold text-stone-700">...</span></p>
+                                <p class="text-green-700">● <span data-i18n="hero_time"></span>: <span id="hero-time" class="font-bold text-stone-700">--:--:--</span></p>
+                            </div>
                         </div>
                     </div>
                     <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-stone-100 animate-float" style="animation-delay:1s">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><i data-lucide="shield-check" class="w-5 h-5 text-green-600"></i></div>
-                            <div><div class="text-xs text-stone-400" data-i18n="hero_f1t"></div><div class="text-sm font-bold text-stone-700" data-i18n="hero_f1v"></div></div>
+                            <div id="hero-country-flag-icon" class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-xl">🏳️</div>
+                            <div><div class="text-xs text-stone-400" data-i18n="hero_country"></div><div class="text-sm font-bold text-stone-700"><span id="hero-country-code">--</span></div></div>
                         </div>
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-stone-100 animate-float" style="animation-delay:2s">
+                    <a href="https://t.me/beekhasanov" target="_blank" rel="noopener noreferrer" class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-stone-100 animate-float hover:shadow-2xl transition-all" style="animation-delay:2s">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center"><i data-lucide="headphones" class="w-5 h-5 text-orange-600"></i></div>
-                            <div><div class="text-xs text-stone-400" data-i18n="hero_f2t"></div><div class="text-sm font-bold text-stone-700" data-i18n="hero_f2v"></div></div>
+                            <div class="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center"><i data-lucide="map-pin" class="w-5 h-5 text-orange-600"></i></div>
+                            <div><div class="text-xs text-stone-400" data-i18n="hero_change_t"></div><div class="text-sm font-bold text-stone-700" data-i18n="hero_change_v"></div></div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -508,7 +511,7 @@ hero_badge:"IT yechimlar — 24/7 qo'llab-quvvatlash",
 hero_t1:'Biznesingiz',hero_t2:'uchun',hero_t3:"to'liq",hero_t4:'IT yechimlar',
 hero_desc:"Serverlardan tortib xavfsizlik tizimlarigacha — biz sizning IT infratuzilmangizni boshqarish, himoya qilish va rivojlantirishda ishonchli hamrohingiz.",
 hero_btn1:'Bepul konsultatsiya',hero_btn2:'Xizmatlar',hero_s1:'Server',hero_s2:'Bot',hero_s3:'Support',
-hero_f1t:'Xavfsizlik',hero_f1v:'100% Himoyalangan',hero_f2t:'Support',hero_f2v:'24/7 Tayyor',
+hero_f1t:'Xavfsizlik',hero_f1v:'100% Himoyalangan',hero_f2t:'Support',hero_f2v:'24/7 Tayyor',hero_ip_cmd:'ip status',hero_ip_addr:'IP Address',hero_ipv4:'IPv4',hero_ipv6:'IPv6',hero_location:'Locatsiya',hero_provider:'Provayder',hero_time:'Vaqt',hero_country:'IP Davlat',hero_change_t:'Telegram',hero_change_v:'Change IP',hero_detecting:'Aniqlanmoqda...',hero_unavailable:'Mavjud emas',
 svc_label:'Xizmatlarimiz',svc_h1:'Biznesingiz uchun',svc_h2:"to'liq",svc_h3:'IT xizmatlar',
 svc_desc:'Har bir IT muammo uchun professional va ishonchli yechim — bitta joyda.',
 s1_t:'IT Xizmat & Support',s1_d:"Kompyuterlar, printerlar, dasturiy ta'minot va apparat muammolariga tezkor yechim. 24/7 texnik yordam.",
@@ -561,7 +564,7 @@ hero_badge:'IT решения — поддержка 24/7',
 hero_t1:'Вашему бизнесу',hero_t2:'полный',hero_t3:'спектр',hero_t4:'IT решений',
 hero_desc:'От серверов до систем безопасности — мы надёжный партнёр в управлении, защите и развитии вашей IT-инфраструктуры.',
 hero_btn1:'Бесплатная консультация',hero_btn2:'Услуги',hero_s1:'Сервер',hero_s2:'Бот',hero_s3:'Поддержка',
-hero_f1t:'Безопасность',hero_f1v:'100% Защищено',hero_f2t:'Поддержка',hero_f2v:'24/7 На связи',
+hero_f1t:'Безопасность',hero_f1v:'100% Защищено',hero_f2t:'Поддержка',hero_f2v:'24/7 На связи',hero_ip_cmd:'ip status',hero_ip_addr:'IP адрес',hero_ipv4:'IPv4',hero_ipv6:'IPv6',hero_location:'Локация',hero_provider:'Провайдер',hero_time:'Время',hero_country:'IP страна',hero_change_t:'Telegram',hero_change_v:'Change IP',hero_detecting:'Определяется...',hero_unavailable:'Недоступно',
 svc_label:'Наши услуги',svc_h1:'Полный спектр',svc_h2:'IT-услуг',svc_h3:'для бизнеса',
 svc_desc:'Профессиональные и надёжные решения для каждой IT-проблемы — в одном месте.',
 s1_t:'IT Услуги и Поддержка',s1_d:'Быстрые решения проблем с компьютерами, принтерами, ПО и оборудованием. Техническая поддержка 24/7.',
@@ -614,7 +617,7 @@ hero_badge:'IT solutions — 24/7 support',
 hero_t1:'Complete',hero_t2:'IT solutions',hero_t3:'for your',hero_t4:'business',
 hero_desc:'From servers to security systems — we are your reliable partner in managing, protecting and developing your IT infrastructure.',
 hero_btn1:'Free Consultation',hero_btn2:'Services',hero_s1:'Server',hero_s2:'Bot',hero_s3:'Support',
-hero_f1t:'Security',hero_f1v:'100% Protected',hero_f2t:'Support',hero_f2v:'24/7 Ready',
+hero_f1t:'Security',hero_f1v:'100% Protected',hero_f2t:'Support',hero_f2v:'24/7 Ready',hero_ip_cmd:'ip status',hero_ip_addr:'IP Address',hero_ipv4:'IPv4',hero_ipv6:'IPv6',hero_location:'Location',hero_provider:'Provider',hero_time:'Time',hero_country:'IP Country',hero_change_t:'Telegram',hero_change_v:'Change IP',hero_detecting:'Detecting...',hero_unavailable:'Unavailable',
 svc_label:'Our Services',svc_h1:'Complete',svc_h2:'IT services',svc_h3:'for your business',
 svc_desc:'Professional and reliable solutions for every IT problem — all in one place.',
 s1_t:'IT Service & Support',s1_d:'Quick solutions for computer, printer, software and hardware issues. 24/7 technical assistance.',
@@ -671,6 +674,115 @@ en:['IT Service & Support','Network Setup','Security Systems','Server Management
 };
 
 let currentLang = localStorage.getItem('synapse_lang') || 'uz';
+let heroTimeZone = 'Asia/Tashkent';
+
+function countryCodeToFlag(code) {
+    if (!code || code.length !== 2 || code === '--') return '🏳️';
+    return code.toUpperCase().replace(/./g, ch => String.fromCodePoint(127397 + ch.charCodeAt()));
+}
+
+function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+}
+
+function updateHeroTime() {
+    const now = new Date();
+    const locale = currentLang === 'ru' ? 'ru-RU' : currentLang === 'en' ? 'en-US' : 'uz-UZ';
+    const formatted = new Intl.DateTimeFormat(locale, {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: heroTimeZone
+    }).format(now);
+    setText('hero-time', formatted);
+}
+
+async function fetchJson(url) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 4500);
+    try {
+        const res = await fetch(url, { signal: controller.signal });
+        if (!res.ok) throw new Error('bad response');
+        return await res.json();
+    } finally {
+        clearTimeout(timer);
+    }
+}
+
+async function getGeoInfo() {
+    const apis = [
+        async () => {
+            const d = await fetchJson('https://ipapi.co/json/');
+            return { ip: d.ip, city: d.city, country: d.country_name, countryCode: d.country_code, provider: d.org || d.asn, timezone: d.timezone };
+        },
+        async () => {
+            const d = await fetchJson('https://ipwho.is/');
+            return { ip: d.ip, city: d.city, country: d.country, countryCode: d.country_code, provider: d.connection?.isp, timezone: d.timezone?.id };
+        },
+        async () => {
+            const d = await fetchJson('https://ipinfo.io/json');
+            return { ip: d.ip, city: d.city, country: d.country, countryCode: d.country, provider: d.org, timezone: d.timezone };
+        }
+    ];
+
+    for (const getInfo of apis) {
+        try {
+            const geo = await getInfo();
+            if (geo && (geo.ip || geo.countryCode || geo.city)) return geo;
+        } catch (_) {}
+    }
+    return null;
+}
+
+async function getIpByService(url, requireV6) {
+    try {
+        const data = await fetchJson(url);
+        const ip = data.ip || '';
+        if (!ip) return '';
+        const isV6 = ip.includes(':');
+        if (requireV6 && !isV6) return '';
+        if (!requireV6 && isV6) return '';
+        return ip;
+    } catch (_) {
+        return '';
+    }
+}
+
+async function loadIpInfo() {
+    const t = T[currentLang];
+    setText('hero-location', t.hero_detecting);
+    setText('hero-provider', t.hero_detecting);
+    setText('hero-ipv6', t.hero_detecting);
+
+    const [geo, ipv4A, ipv4B, ipv6A, ipv6B] = await Promise.all([
+        getGeoInfo(),
+        getIpByService('https://api.ipify.org?format=json', false),
+        getIpByService('https://api.ip.sb/jsonip', false),
+        getIpByService('https://api64.ipify.org?format=json', true),
+        getIpByService('https://api64.ip.sb/jsonip', true)
+    ]);
+
+    const ipv4 = ipv4A || ipv4B || geo?.ip || t.hero_unavailable;
+    const ipv6 = ipv6A || ipv6B || t.hero_unavailable;
+    const city = geo?.city || '';
+    const country = geo?.country || '';
+    const location = city && country ? `${city}, ${country}` : (country || city || t.hero_unavailable);
+    const provider = geo?.provider || t.hero_unavailable;
+    const countryCode = (geo?.countryCode || '').toUpperCase() || '--';
+
+    if (geo?.timezone) heroTimeZone = geo.timezone;
+
+    setText('hero-ipv4', ipv4);
+    setText('hero-ip-address', ipv4);
+    setText('hero-ipv4-line', ipv4);
+    setText('hero-ipv6', ipv6);
+    setText('hero-location', location);
+    setText('hero-provider', provider);
+    setText('hero-country-code', countryCode);
+    setText('hero-country-flag-icon', countryCodeToFlag(countryCode));
+    updateHeroTime();
+}
 
 function setLang(lang) {
     currentLang = lang;
@@ -719,6 +831,9 @@ function setLang(lang) {
     const titles = { uz:'SYNAPSE — IT Solutions | Toshkent, O\'zbekiston', ru:'SYNAPSE — IT Solutions | Ташкент, Узбекистан', en:'SYNAPSE — IT Solutions | Tashkent, Uzbekistan' };
     document.title = titles[lang];
 
+    loadIpInfo();
+    updateHeroTime();
+
     // HTML lang attr
     document.documentElement.lang = lang;
 }
@@ -727,6 +842,9 @@ function setLang(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
     setLang(currentLang);
+    loadIpInfo();
+    updateHeroTime();
+    setInterval(updateHeroTime, 1000);
 
     // Language dropdown toggle
     const langBtn = document.getElementById('langBtn');
